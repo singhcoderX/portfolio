@@ -19,10 +19,7 @@ const Homepage = () => {
           Hello! I’m Aryan Singh, a dedicated Software Engineer with a strong
           passion for solving real-world problems through technology. My primary
           expertise lies in front-end development with React, but my curiosity
-          and drive have led me to explore backend technologies as well. My
-          ultimate goal is to become a proficient full-stack developer, bridging
-          the gap between front-end elegance and backend functionality to create
-          seamless, impactful applications.
+          and drive have led me to explore backend technologies as well.
         </p>
         {/* BUTTONS */}
         <div className="flex gap-4 w-full">
