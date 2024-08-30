@@ -1,4 +1,6 @@
 "use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -17,12 +19,23 @@ const NavBar = () => {
     setOpen((prev) => !prev);
   };
 
+  const animateVariants = {
+    first: {
+      rotate: 45,
+    },
+    second: {
+      opacity: 0,
+    },
+    third: {
+      rotate: -45,
+    },
+  };
   return (
     <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl">
       {/* LINKSß */}
       <div className="hidden md:flex gap-4 w-1/3">
-        {links.map((link) => {
-          return <NavLink link={link} key={link.url} />;
+        {links.map((link, idx) => {
+          return <NavLink link={link} key={`link_${idx}`} />;
         })}
       </div>
       {/* LOGO */}
@@ -61,15 +74,25 @@ const NavBar = () => {
           className="w-10 h-8 flex flex-col justify-between z-50 relative"
           onClick={handleMenu}
         >
-          <div
+          <motion.div
+            className={`w-10 h-1 bg-${
+              open ? "white" : "black"
+            } rounded origin-left`}
+            variants={animateVariants}
+            animate={open ? "first" : ""}
+          ></motion.div>
+          <motion.div
             className={`w-10 h-1 bg-${open ? "white" : "black"} rounded`}
-          ></div>
-          <div
-            className={`w-10 h-1 bg-${open ? "white" : "black"} rounded`}
-          ></div>
-          <div
-            className={`w-10 h-1 bg-${open ? "white" : "black"} rounded`}
-          ></div>
+            variants={animateVariants}
+            animate={open ? "second" : ""}
+          ></motion.div>
+          <motion.div
+            className={`w-10 h-1 bg-${
+              open ? "white" : "black"
+            } rounded origin-left`}
+            variants={animateVariants}
+            animate={open ? "third" : ""}
+          ></motion.div>
         </button>
         {open && (
           <div className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-10">
