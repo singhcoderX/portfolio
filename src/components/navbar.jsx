@@ -30,6 +30,30 @@ const NavBar = () => {
       rotate: -45,
     },
   };
+
+  const listVariants = {
+    closed: {
+      x: "100vw",
+    },
+    opened: {
+      x: 0,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const listItemsVariants = {
+    closed: {
+      x: -10,
+      opacity: 0,
+    },
+    opened: {
+      x: 0,
+      opacity: 1,
+    },
+  };
+
   return (
     <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl">
       {/* LINKSß */}
@@ -95,15 +119,20 @@ const NavBar = () => {
           ></motion.div>
         </button>
         {open && (
-          <div className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-10">
+          <motion.div
+            className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-10"
+            variants={listVariants}
+            animate={open ? "opened" : "closed"}
+            initial="closed"
+          >
             {links.map((link) => {
               return (
-                <Link key={link.url} href={link.url}>
-                  {link.title}
-                </Link>
+                <motion.div key={link.url} variants={listItemsVariants}>
+                  <Link href={link.url}>{link.title}</Link>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         )}
       </div>
     </div>
