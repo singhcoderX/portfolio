@@ -127,7 +127,13 @@ const NavBar = () => {
           >
             {links.map((link) => {
               return (
-                <motion.div key={link.url} variants={listItemsVariants}>
+                <motion.div
+                  key={link.url}
+                  variants={listItemsVariants}
+                  onClick={() => {
+                    setOpen(false);
+                  }}
+                >
                   <Link href={link.url}>{link.title}</Link>
                 </motion.div>
               );
