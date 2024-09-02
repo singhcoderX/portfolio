@@ -38,6 +38,7 @@ const NavBar = () => {
     opened: {
       x: 0,
       transition: {
+        when: "beforeChildren",
         staggerChildren: 0.2,
       },
     },

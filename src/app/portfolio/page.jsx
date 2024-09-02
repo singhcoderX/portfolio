@@ -1,7 +1,8 @@
 import React from "react";
+import PageWrapper from "../pageWrapper";
 
 const PortfolioPage = () => {
-  return <div>PortfolioPage</div>;
+  return <PageWrapper>PortfolioPage</PageWrapper>;
 };
 
 export default PortfolioPage;
