@@ -1,5 +1,5 @@
 import React from "react";
-import PageWrapper from "../pageWrapper";
+import PageWrapper from "../../components/pageWrapper";
 
 const ContactPage = () => {
   return <PageWrapper>ContactPage</PageWrapper>;

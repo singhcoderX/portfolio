@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PageWrapper from "./pageWrapper";
+import PageWrapper from "../components/pageWrapper";
 
 const Homepage = () => {
   return (
