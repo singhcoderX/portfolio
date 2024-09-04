@@ -10,8 +10,11 @@ const AboutPage = () => {
         <div className="p-4 sm:p-8 md:p-12 lg:p-20 xl:p-48 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64">
           {/* Biography Container  */}
           <div className="flex flex-col gap-12 justify-center">
-            <h1>Biography</h1>
-            <p>
+            {/* Biography Title  */}
+            <h1 className="font-bold text-2xl">Biography</h1>
+            {/* Biography Desc  */}
+
+            <p className="text-lg">
               Aryan Singh hails from the vibrant city of Kashipur in
               Uttarakhand, India. With a strong academic foundation in science,
               they embarked on their journey to IIT at a young age, beginning
@@ -28,7 +31,21 @@ const AboutPage = () => {
               to making a positive impact on their country and its people,
               striving to give back in meaningful ways.
             </p>
-            <span>Hardwork works where talent fails</span>
+            {/* Biography Quote  */}
+
+            <span className="italic">Hardwork works where talent fails.</span>
+            {/* Biography Sign  */}
+
+            <div className="overflow-hidden h-32 w-32 self-end">
+              <img
+                src={"/sign.svg"}
+                alt="sign"
+                style={{ transform: "scale(4) translateY(3px)" }}
+              />
+            </div>
+            {/* Biography Scroll SVG  */}
+
+            <div className=""></div>
           </div>
           {/* Skills Container  */}
           <div className="">Skills</div>
