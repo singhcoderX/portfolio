@@ -2,6 +2,26 @@ import React from "react";
 import PageWrapper from "../../components/pageWrapper";
 
 const AboutPage = () => {
+  const skills = [
+    "JavaScript",
+    "TypeScript",
+    "React Js",
+    "Redux",
+    "Node Js",
+    "Express Js",
+    "Vue Js",
+    "MongoDB",
+    "mySQL",
+    "Webpack",
+    "Git",
+    "Figma",
+    "Jest",
+    "Google Cloud",
+    "Firebase",
+    "Jira",
+    "Blender",
+  ];
+
   return (
     <PageWrapper>
       {/* CONTAINER */}
@@ -43,12 +63,22 @@ const AboutPage = () => {
                 style={{ transform: "scale(4) translateY(3px)" }}
               />
             </div>
-            {/* Biography Scroll SVG  */}
-
-            <div className=""></div>
           </div>
           {/* Skills Container  */}
-          <div className="">Skills</div>
+          <div className="flex flex-col gap-12 justify-center">
+            {/* Skills Title  */}
+            <h1 className="font-bold text-2xl">Skills</h1>
+            {/* Skills list  */}
+            <div className="flex flex-wrap gap-4">
+              {skills.map((skill, idx) => {
+                return (
+                  <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+                    {skill}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
           {/* Experience Container  */}
           <div className="">Experience</div>
         </div>
