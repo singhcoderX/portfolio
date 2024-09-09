@@ -80,7 +80,21 @@ const AboutPage = () => {
             </div>
           </div>
           {/* Experience Container  */}
-          <div className="">Experience</div>
+          <div className="flex flex-col gap-12 justify-center">
+            {/* Experience Title  */}
+            <h1 className="font-bold text-2xl">Experience</h1>
+            <div className="">
+              {/* Experience List Item  */}
+              <div className="">
+                {/* LEFT  */}
+                <div className="">
+                  {/* Job Title  */}
+                  <div> Web Internship</div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         {/* SVG Container  */}
         <div className=""></div>
