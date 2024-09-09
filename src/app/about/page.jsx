@@ -22,6 +22,51 @@ const AboutPage = () => {
     "Blender",
   ];
 
+  const jobs = [
+    {
+      title: "Web Internship",
+      desc: `Led the integration of digital business card exchange features into NEXTa Meishi,
+              enhancing online networking capabilities using PHP (Laravel), Vue.js, and Vuetify.`,
+      date: "May 2020 - Jun 2020",
+      company: "Tonichi",
+    },
+    {
+      title: "Senior Software Engineer",
+      desc: `Built dynamic user interfaces with React.js, integrating
+                    highcharts for interactive data visualizations and
+                    drag-and-drop widgets.`,
+      date: "Jun 2021 - Nov 2022",
+      company: "Envestnet Yodlee",
+    },
+    {
+      title: "Senior Engineer",
+      desc: `Transitioned to TCS through a strategic partnership with
+                    Envestnet, ensuring project continuity and overseeing
+                    ongoing initiatives. Facilitated onboarding and provided
+                    mentorship to new team members.`,
+      date: "Nov 2022 - present",
+      company: "Tata Consultancy Service",
+    },
+  ];
+
+  const renderJobDetail = (job) => {
+    return (
+      <>
+        {/* Job Title  */}
+        <div className="bg-white p-3 font-semibold rounded-b-lg rounded-s-lg">
+          {job.title}
+        </div>
+        {/* Job Desc  */}
+        <div className="p-3 text-sm italic">{job.desc}</div>
+        {/* Job Date  */}
+        <div className="p-3 text-red-400 text-sm font-semibold">{job.date}</div>
+        {/* Job Company  */}
+        <div className="p-1 rounded bg-white text-sm font-semibold w-fit">
+          {job.company}
+        </div>
+      </>
+    );
+  };
   return (
     <PageWrapper>
       {/* CONTAINER */}
@@ -80,19 +125,36 @@ const AboutPage = () => {
             </div>
           </div>
           {/* Experience Container  */}
-          <div className="flex flex-col gap-12 justify-center">
+          <div className="m-b-4 flex flex-col gap-12 justify-center">
             {/* Experience Title  */}
             <h1 className="font-bold text-2xl">Experience</h1>
+            {/* Experience List  */}
             <div className="">
-              {/* Experience List Item  */}
-              <div className="">
-                {/* LEFT  */}
-                <div className="">
-                  {/* Job Title  */}
-                  <div> Web Internship</div>
-                  <div></div>
-                </div>
-              </div>
+              {jobs.map((job, idx) => {
+                return (
+                  <>
+                    {/* Experience List Item*/}
+                    <div className="flex justify-between h-48" key={idx}>
+                      {/* LEFT  */}
+                      <div className="w-1/3">
+                        {idx % 2 == 0 && <>{renderJobDetail(job)}</>}
+                      </div>
+                      {/* CENTER  */}
+                      <div className="w-1/6">
+                        {/* LINE  */}
+                        <div className="">
+                          {/* CIRCLE  */}
+                          <div className=""></div>
+                        </div>
+                      </div>
+                      {/* RIGHT  */}
+                      <div className="w-1/3">
+                        {idx % 2 != 0 && <>{renderJobDetail(job)}</>}
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
             </div>
           </div>
         </div>
