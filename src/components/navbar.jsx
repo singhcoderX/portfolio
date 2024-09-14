@@ -82,14 +82,14 @@ const NavBar = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image src={"/github.png"} width={24} height={24} />
+          <Image src={"github.png"} width={24} height={24} />
         </a>
         <a
           href={"https://www.linkedin.com/in/aryansingh007/"}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image src={"/linkedin.png"} width={24} height={24} />
+          <Image src={"linkedin.png"} width={24} height={24} />
         </a>
       </div>
 
