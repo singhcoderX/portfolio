@@ -1,7 +1,13 @@
-import React from "react";
+"use client";
+import React, { useRef } from "react";
 import PageWrapper from "../../components/pageWrapper";
+import Brain from "../../components/brain";
+import { useScroll } from "framer-motion";
 
 const AboutPage = () => {
+  const containerRef = useRef({});
+  const { scrollYProgress } = useScroll({ container: containerRef });
+  // console.log(scrollYProgress);
   const skills = [
     "JavaScript",
     "TypeScript",
@@ -70,9 +76,9 @@ const AboutPage = () => {
   return (
     <PageWrapper>
       {/* CONTAINER */}
-      <div className="lg:flex">
+      <div className="h-full overflow-scroll lg:flex" ref={containerRef}>
         {/* Text Container  */}
-        <div className="p-4 sm:p-8 md:p-12 lg:p-20 xl:p-48 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64 lg:w-2/3 lg:pr-0 xl:w-1/2">
+        <div className="p-4 sm:p-8 md:p-12 lg:p-20 xl:p-24 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64 lg:w-2/3 lg:pr-0">
           {/* Biography Container  */}
           <div className="flex flex-col gap-12 justify-center">
             {/* Biography Title  */}
@@ -117,7 +123,10 @@ const AboutPage = () => {
             <div className="flex flex-wrap gap-4">
               {skills.map((skill, idx) => {
                 return (
-                  <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
+                  <div
+                    className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black"
+                    key={idx}
+                  >
                     {skill}
                   </div>
                 );
@@ -132,34 +141,33 @@ const AboutPage = () => {
             <div className="">
               {jobs.map((job, idx) => {
                 return (
-                  <>
-                    {/* Experience List Item*/}
-                    <div className="flex justify-between h-48" key={idx}>
-                      {/* LEFT  */}
-                      <div className="w-1/3">
-                        {idx % 2 == 0 && <>{renderJobDetail(job)}</>}
-                      </div>
-                      {/* CENTER  */}
-                      <div className="w-1/6">
-                        {/* LINE  */}
-                        <div className="w-1 h-full bg-gray-600 rounded relative">
-                          {/* CIRCLE  */}
-                          <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2"></div>
-                        </div>
-                      </div>
-                      {/* RIGHT  */}
-                      <div className="w-1/3">
-                        {idx % 2 != 0 && <>{renderJobDetail(job)}</>}
+                  <div className="flex justify-between h-48" key={idx}>
+                    {/* LEFT  */}
+                    <div className="w-1/3">
+                      {idx % 2 == 0 && <>{renderJobDetail(job)}</>}
+                    </div>
+                    {/* CENTER  */}
+                    <div className="w-1/6">
+                      {/* LINE  */}
+                      <div className="w-1 h-full bg-gray-600 rounded relative">
+                        {/* CIRCLE  */}
+                        <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2"></div>
                       </div>
                     </div>
-                  </>
+                    {/* RIGHT  */}
+                    <div className="w-1/3">
+                      {idx % 2 != 0 && <>{renderJobDetail(job)}</>}
+                    </div>
+                  </div>
                 );
               })}
             </div>
           </div>
         </div>
         {/* SVG Container  */}
-        <div className="hidden lg:block w-1/3 xl:w-1/2"></div>
+        <div className="hidden lg:block w-1/3 sticky  top-0">
+          <Brain scrollYProgress={scrollYProgress} />
+        </div>
       </div>
     </PageWrapper>
   );
