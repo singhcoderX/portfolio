@@ -70,9 +70,9 @@ const AboutPage = () => {
   return (
     <PageWrapper>
       {/* CONTAINER */}
-      <div className="">
+      <div className="lg:flex">
         {/* Text Container  */}
-        <div className="p-4 sm:p-8 md:p-12 lg:p-20 xl:p-48 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64">
+        <div className="p-4 sm:p-8 md:p-12 lg:p-20 xl:p-48 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64 lg:w-2/3 lg:pr-0 xl:w-1/2">
           {/* Biography Container  */}
           <div className="flex flex-col gap-12 justify-center">
             {/* Biography Title  */}
@@ -142,9 +142,9 @@ const AboutPage = () => {
                       {/* CENTER  */}
                       <div className="w-1/6">
                         {/* LINE  */}
-                        <div className="">
+                        <div className="w-1 h-full bg-gray-600 rounded relative">
                           {/* CIRCLE  */}
-                          <div className=""></div>
+                          <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2"></div>
                         </div>
                       </div>
                       {/* RIGHT  */}
@@ -159,7 +159,7 @@ const AboutPage = () => {
           </div>
         </div>
         {/* SVG Container  */}
-        <div className=""></div>
+        <div className="hidden lg:block w-1/3 xl:w-1/2"></div>
       </div>
     </PageWrapper>
   );
