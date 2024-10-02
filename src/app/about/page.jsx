@@ -2,12 +2,19 @@
 import React, { useRef } from "react";
 import PageWrapper from "../../components/pageWrapper";
 import Brain from "../../components/brain";
-import { useScroll } from "framer-motion";
+import { useInView, useScroll, motion } from "framer-motion";
 
 const AboutPage = () => {
   const containerRef = useRef({});
   const { scrollYProgress } = useScroll({ container: containerRef });
+  const bioRef = useRef();
+  const isBioRefInView = useInView(bioRef);
+  const skillRef = useRef();
+  const isSkillRefInView = useInView(skillRef, { margin: "-100px" });
+  const expRef = useRef();
+  const isExpRefInView = useInView(expRef);
 
+  // console.log(scrollYProgress);
   const skills = [
     "JavaScript",
     "TypeScript",
@@ -80,47 +87,76 @@ const AboutPage = () => {
         {/* Text Container  */}
         <div className="p-4 sm:p-8 md:p-12 lg:p-20 xl:p-24 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64 lg:w-2/3 lg:pr-0">
           {/* Biography Container  */}
-          <div className="flex flex-col gap-12 justify-center">
+          <div className="flex flex-col gap-12 justify-center" ref={bioRef}>
             {/* Biography Title  */}
-            <h1 className="font-bold text-2xl">Biography</h1>
+            <motion.h1
+              initial={{ x: -300 }}
+              animate={isBioRefInView ? { x: 0 } : {}}
+              transition={{ delay: 0.4 }}
+              className="font-bold text-2xl"
+            >
+              Biography
+            </motion.h1>
             {/* Biography Desc  */}
-
-            <p className="text-lg">
-              Aryan Singh hails from the vibrant city of Kashipur in
-              Uttarakhand, India. With a strong academic foundation in science,
-              they embarked on their journey to IIT at a young age, beginning
-              preparations in Kota from Class 9th. Their hard work paid off when
-              they successfully cracked the IIT entrance exam, leading them to
-              pursue a B.Tech in Computer Science at IIT Jodhpur, from which
-              they graduated in 2021. Currently, they are a skilled full-stack
-              developer, boasting three years of experience, particularly with
-              React. Their passion for coding is matched by a love for football,
-              both as a player and a spectator. Beyond the digital realm, they
-              find joy in traveling and sketching, hobbies that allow them to
-              explore their creativity and the world around them. Driven by a
-              desire to live a healthy and fulfilling life, they are committed
-              to making a positive impact on their country and its people,
-              striving to give back in meaningful ways.
-            </p>
-            {/* Biography Quote  */}
-
-            <span className="italic">Hardwork works where talent fails.</span>
-            {/* Biography Sign  */}
-
-            <div className="overflow-hidden h-32 w-32 self-end">
+            <motion.div
+              initial={{ x: -300 }}
+              animate={isBioRefInView ? { x: 0 } : {}}
+              transition={{ delay: 0.3 }}
+            >
+              <p className="text-lg">
+                Aryan Singh hails from the vibrant city of Kashipur in
+                Uttarakhand, India. With a strong academic foundation in
+                science, they embarked on their journey to IIT at a young age,
+                beginning preparations in Kota from Class 9th. Their hard work
+                paid off when they successfully cracked the IIT entrance exam,
+                leading them to pursue a B.Tech in Computer Science at IIT
+                Jodhpur, from which they graduated in 2021. Currently, they are
+                a skilled full-stack developer, boasting three years of
+                experience, particularly with React. Their passion for coding is
+                matched by a love for football, both as a player and a
+                spectator. Beyond the digital realm, they find joy in traveling
+                and sketching, hobbies that allow them to explore their
+                creativity and the world around them. Driven by a desire to live
+                a healthy and fulfilling life, they are committed to making a
+                positive impact on their country and its people, striving to
+                give back in meaningful ways.
+              </p>
+              {/* Biography Quote  */}
+              <br />
+              <span className="italic">Hardwork works where talent fails.</span>
+              {/* Biography Sign  */}
+            </motion.div>
+            <motion.div
+              initial={{ x: -300 }}
+              animate={isBioRefInView ? { x: 0 } : {}}
+              transition={{ delay: 0.2 }}
+              className="overflow-hidden h-32 w-32 self-end"
+            >
               <img
                 src={"/sign.svg"}
                 alt="sign"
                 style={{ transform: "scale(4) translateY(3px)" }}
               />
-            </div>
+            </motion.div>
           </div>
           {/* Skills Container  */}
-          <div className="flex flex-col gap-12 justify-center">
+          <div className="flex flex-col gap-12 justify-center" ref={skillRef}>
             {/* Skills Title  */}
-            <h1 className="font-bold text-2xl">Skills</h1>
+            <motion.h1
+              initial={{ x: -300 }}
+              animate={isSkillRefInView ? { x: 0 } : {}}
+              transition={{ delay: 0.3 }}
+              className="font-bold text-2xl"
+            >
+              Skills
+            </motion.h1>
             {/* Skills list  */}
-            <div className="flex flex-wrap gap-4">
+            <motion.div
+              className="flex flex-wrap gap-4"
+              initial={{ x: -300 }}
+              animate={isSkillRefInView ? { x: 0 } : {}}
+              transition={{ delay: 0.2 }}
+            >
               {skills.map((skill, idx) => {
                 return (
                   <div
@@ -131,14 +167,29 @@ const AboutPage = () => {
                   </div>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
           {/* Experience Container  */}
-          <div className="m-b-4 flex flex-col gap-12 justify-center">
+          <div
+            className="m-b-4 flex flex-col gap-12 justify-center"
+            ref={expRef}
+          >
             {/* Experience Title  */}
-            <h1 className="font-bold text-2xl">Experience</h1>
+            <motion.h1
+              initial={{ x: -300 }}
+              animate={isExpRefInView ? { x: 0 } : {}}
+              transition={{ delay: 0.3 }}
+              className="font-bold text-2xl"
+            >
+              Experience
+            </motion.h1>
             {/* Experience List  */}
-            <div className="">
+            <motion.div
+              initial={{ x: -300 }}
+              animate={isExpRefInView ? { x: 0 } : {}}
+              transition={{ delay: 0.2 }}
+              className=""
+            >
               {jobs.map((job, idx) => {
                 return (
                   <div className="flex justify-between h-48" key={idx}>
@@ -161,7 +212,7 @@ const AboutPage = () => {
                   </div>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
         </div>
         {/* SVG Container  */}
