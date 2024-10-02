@@ -7,7 +7,7 @@ import { useScroll } from "framer-motion";
 const AboutPage = () => {
   const containerRef = useRef({});
   const { scrollYProgress } = useScroll({ container: containerRef });
-  // console.log(scrollYProgress);
+
   const skills = [
     "JavaScript",
     "TypeScript",

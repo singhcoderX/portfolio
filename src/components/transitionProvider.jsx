@@ -36,9 +36,7 @@ const TransitionProvider = ({ children }) => {
         <div className="h-24">
           <NavBar />
         </div>
-        <div className="h-[calc(100vh-6rem)] overflow-hidden overflow-y-scroll">
-          {children}
-        </div>
+        <div className="h-[calc(100vh-6rem)]">{children}</div>
       </div>
     </AnimatePresence>
   );
