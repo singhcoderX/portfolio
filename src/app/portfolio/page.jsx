@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef } from "react";
+import Image from "next/image";
 import PageWrapper from "../../components/pageWrapper";
 import { useScroll, useTransform, motion } from "framer-motion";
 import Link from "next/link";
@@ -13,14 +14,15 @@ const PortfolioPage = () => {
     {
       id: "peerChat",
       title: "Peer Chat",
-      desc: "PeerChat is a feature-rich, peer-to-peer chat application built using Python3 and Socket Programming. It offers a seamless communication experience for multiple clients, allowing them to chat directly with each other without any intermediary server.",
+      desc: "PeerChat is a feature-rich, peer-to-peer chat application built using Python3 and Socket Programming.",
       link: "https://github.com/singhcoderX/PeerChat",
+      img: "./projects/peerchat.jpg",
       color: "from-red-300 to-blue-300",
     },
     {
       id: "newJob",
-      title: "New Job - 30 Days, 30 Coding Questions Platform",
-      desc: "Building a platform to prepare people for job interviews with daily coding challenges. Developed from scratch using React, Node.js, Webpack, TypeScript, and Babel. Deployment via Google Cloud Functions with GitHub Actions for CI/CD. Providing mentorship to interns as part of the project.",
+      title: "New Job",
+      desc: "New Job - 30 Days, 30 Coding Questions Platform. Building a platform to prepare people for job interviews with daily coding challenges.",
       link: "https://newjob.dev/",
       color: "from-blue-300 to-green-300",
     },
@@ -46,10 +48,29 @@ const PortfolioPage = () => {
                   className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${project.color}`}
                 >
                   <div className="flex flex-col gap-8 text-white">
-                    <h1>{project.title}</h1>
-                    <p>{project.desc}</p>
-                    <Link href={project.link}>
-                      <button>Link</button>
+                    <h1 className="text-xl font-bold md:text-4xl lg:text-6xl">
+                      {project.title}
+                    </h1>
+                    <div className="relative w-80 h-48 md:w-96 md:h-56 lg:w-[500px] lg:h-[280px] xl:w-[600px] xl:h-[400px]">
+                      {project.img ? (
+                        <Image src={project.img} fill alt={project.title} />
+                      ) : (
+                        <iframe
+                          src={project.link}
+                          width={"100%"}
+                          height={"100%"}
+                          // className="w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px]"
+                          style={{ pointerEvents: "none", border: "none" }}
+                        />
+                      )}
+                    </div>
+                    <p className="w-80 md:w-96 lg:w-[500px] lg:text-lg xl:w-[600px]">
+                      {project.desc}
+                    </p>
+                    <Link href={project.link} className="flex justify-end">
+                      <button className="p-2 md:text-md lg:p-4 lg:text-lg  text-sm bg-white text-gray-500 font-semibold m-4 rounded">
+                        See Demo
+                      </button>
                     </Link>
                   </div>
                 </div>
