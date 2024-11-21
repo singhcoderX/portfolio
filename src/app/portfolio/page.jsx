@@ -8,23 +8,32 @@ import Link from "next/link";
 const PortfolioPage = () => {
   const ref = useRef();
   const { scrollYProgress } = useScroll({ target: ref });
-  const xValue = useTransform(scrollYProgress, [0, 1], ["0%", "-66.5%"]);
+  const xValue = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]); // change -ve percentage wrt length of projects
 
   const projects = [
     {
-      id: "peerChat",
-      title: "Peer Chat",
-      desc: "PeerChat is a feature-rich, peer-to-peer chat application built using Python3 and Socket Programming.",
-      link: "https://github.com/singhcoderX/PeerChat",
-      img: "./projects/peerchat.jpg",
+      id: "quickReactHooks",
+      title: "Quick React Hooks",
+      desc: "A collection of reusable and easy-to-use React hooks designed to simplify common tasks in React applications.",
+      img: "./projects/npm.png",
+      link: "https://www.npmjs.com/package/quick-react-hooks",
       color: "from-red-300 to-blue-300",
     },
+
     {
       id: "newJob",
       title: "New Job",
       desc: "New Job - 30 Days, 30 Coding Questions Platform. Building a platform to prepare people for job interviews with daily coding challenges.",
       link: "https://newjob.dev/",
-      color: "from-blue-300 to-green-300",
+      color: "from-blue-300 to-green-500",
+    },
+    {
+      id: "peerChat",
+      title: "Peer Chat",
+      desc: "PeerChat is a feature-rich, peer-to-peer chat application built using Python3 and Socket Programming.",
+      link: "https://github.com/singhcoderX/PeerChat",
+      img: "./projects/chat.png",
+      color: "from-green-500 to-pink-400",
     },
   ];
 
@@ -53,7 +62,12 @@ const PortfolioPage = () => {
                     </h1>
                     <div className="relative w-80 h-48 md:w-96 md:h-56 lg:w-[500px] lg:h-[280px] xl:w-[600px] xl:h-[400px]">
                       {project.img ? (
-                        <Image src={project.img} fill alt={project.title} />
+                        <Image
+                          src={project.img}
+                          alt={project.title}
+                          fill
+                          style={{ objectFit: "contain" }}
+                        />
                       ) : (
                         <iframe
                           src={project.link}
