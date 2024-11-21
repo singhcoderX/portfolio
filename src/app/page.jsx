@@ -1,7 +1,10 @@
+"use client";
 import Image from "next/image";
 import PageWrapper from "../components/pageWrapper";
+import { useRouter } from "next/navigation";
 
 const Homepage = () => {
+  const router = useRouter();
   return (
     <PageWrapper>
       <div className="h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
@@ -26,10 +29,20 @@ const Homepage = () => {
           </p>
           {/* BUTTONS */}
           <div className="flex gap-4 w-full">
-            <button className="p-4 rounded-lg ring-1 ring-black bg-black text-white">
+            <button
+              className="p-4 rounded-lg ring-1 ring-black bg-black text-white"
+              onClick={() => {
+                router.push("/portfolio");
+              }}
+            >
               View My Work
             </button>
-            <button className="p-4 rounded-lg ring-1 ring-black">
+            <button
+              className="p-4 rounded-lg ring-1 ring-black"
+              onClick={() => {
+                router.push("/contact");
+              }}
+            >
               Contact Me
             </button>
           </div>
