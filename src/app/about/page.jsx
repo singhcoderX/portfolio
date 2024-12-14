@@ -83,7 +83,7 @@ const AboutPage = () => {
   return (
     <PageWrapper>
       {/* CONTAINER */}
-      <div className="h-full overflow-scroll lg:flex" ref={containerRef}>
+      <div className="h-full overflow-scroll lg:flex pb-4" ref={containerRef}>
         {/* Text Container  */}
         <div className="p-4 sm:p-8 md:p-12 lg:p-20 xl:p-24 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64 lg:w-2/3 lg:pr-0">
           {/* Biography Container  */}
@@ -123,14 +123,16 @@ const AboutPage = () => {
               </p>
               {/* Biography Quote  */}
               <br />
-              <span className="italic">Hardwork works where talent fails.</span>
+              <span className="italic hidden sm:block">
+                Hardwork works where talent fails.
+              </span>
               {/* Biography Sign  */}
             </motion.div>
             <motion.div
               initial={{ x: -300 }}
               animate={isBioRefInView ? { x: 0 } : {}}
               transition={{ delay: 0.2 }}
-              className="overflow-hidden h-32 w-32 self-end"
+              className="hidden sm:block overflow-hidden h-32 w-32 self-end"
             >
               <img
                 src={"/sign.svg"}
@@ -188,26 +190,39 @@ const AboutPage = () => {
               initial={{ x: -300 }}
               animate={isExpRefInView ? { x: 0 } : {}}
               transition={{ delay: 0.2 }}
-              className=""
+              className="mb-8"
             >
               {jobs.map((job, idx) => {
                 return (
-                  <div className="flex justify-between h-48" key={idx}>
-                    {/* LEFT  */}
-                    <div className="w-1/3">
-                      {idx % 2 == 0 && <>{renderJobDetail(job)}</>}
-                    </div>
-                    {/* CENTER  */}
-                    <div className="w-1/6">
-                      {/* LINE  */}
-                      <div className="w-1 h-full bg-gray-600 rounded relative">
-                        {/* CIRCLE  */}
-                        <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2"></div>
+                  <div key={idx}>
+                    <div className="hidden sm:flex  justify-between  h-48">
+                      {/* LEFT  */}
+                      <div className="w-1/3">
+                        {idx % 2 == 0 && <>{renderJobDetail(job)}</>}
+                      </div>
+                      {/* CENTER  */}
+                      <div className="w-1/6">
+                        {/* LINE  */}
+                        <div className="w-1 h-full bg-gray-600 rounded relative">
+                          {/* CIRCLE  */}
+                          <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2"></div>
+                        </div>
+                      </div>
+                      {/* RIGHT  */}
+                      <div className="w-1/3">
+                        {idx % 2 != 0 && <>{renderJobDetail(job)}</>}
                       </div>
                     </div>
-                    {/* RIGHT  */}
-                    <div className="w-1/3">
-                      {idx % 2 != 0 && <>{renderJobDetail(job)}</>}
+                    <div className="flex sm:hidden  justify-between h-auto m-1">
+                      <div className="w-2/3">{renderJobDetail(job)}</div>
+                      {/* CENTER  */}
+                      <div className="w-1/6">
+                        {/* LINE  */}
+                        <div className="w-1 h-full bg-gray-600 rounded relative">
+                          {/* CIRCLE  */}
+                          <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2"></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 );
