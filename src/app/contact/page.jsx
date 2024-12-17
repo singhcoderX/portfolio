@@ -6,15 +6,25 @@ import emailjs from "@emailjs/browser";
 
 const ContactPage = () => {
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState("");
   const form = useRef();
   const text = "Hi There";
 
   const handleEmail = (e) => {
     e.preventDefault();
-    setError(false);
+    setError("");
     setSuccess(false);
-    console.log("PRocess", process.env.NEXT_PUBLIC_PUBLIC_KEY);
+
+    const userMessage = form.current?.user_message?.value.trim();
+    const userEmail = form.current?.user_email?.value.trim();
+
+    // Empty checks for user input
+    if (!userMessage || !userEmail) {
+      setError("FAILED... Fields cannot be empty!");
+
+      return;
+    }
+
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_SERVICE_ID,
@@ -32,10 +42,11 @@ const ContactPage = () => {
         },
         (error) => {
           console.log("FAILED...", error.text);
-          setError(true);
+          setError("Something went wrong!");
         }
       );
   };
+
   return (
     <PageWrapper>
       {/* <WorkInProgress /> */}
@@ -64,20 +75,20 @@ const ContactPage = () => {
         </div>
         {/* FORM CONTAINER  */}
         <form
-          className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-24"
+          className="min-h-[10rem] sm:h-1/2 lg:h-full lg:w-1/2  bg-red-50 rounded-xl text-xl flex flex-col gap-2 justify-center p-6 sm:p-24 box-border"
           onSubmit={handleEmail}
           ref={form}
         >
           <span>Dear Aryan Singh,</span>
           <textarea
             rows={6}
-            className="bg-transparent border-b-2 border-b-black outline-none resize-none"
+            className="bg-red-100 border-b-2 border-b-black outline-none resize-none min-h-[5rem]"
             name="user_message"
           ></textarea>
           <span>My email address is:</span>
           <input
             type="email"
-            className="bg-transparent border-b-2 border-b-black outline-none"
+            className="bg-red-100 border-b-2 border-b-black outline-none"
             name="user_email"
           />
           <span>Thanks & Regards</span>
@@ -89,10 +100,8 @@ const ContactPage = () => {
               Your message has been sent successfully!
             </span>
           )}
-          {error && (
-            <span className="text-red-600 font-semibold">
-              Something went wrong!
-            </span>
+          {error != "" && (
+            <span className="text-red-600 font-semibold">{error}</span>
           )}
         </form>
       </div>
