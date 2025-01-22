@@ -8,24 +8,30 @@ import Link from "next/link";
 const PortfolioPage = () => {
   const ref = useRef();
   const { scrollYProgress } = useScroll({ target: ref });
-  const xValue = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]); // change -ve percentage wrt length of projects
+  const xValue = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]); // change -ve percentage wrt length of projects
 
   const projects = [
+    {
+      id: "newJob",
+      title: "New Job",
+      desc: "New Job - 30 Days, 30 Coding Questions Platform. Building a platform to prepare people for job interviews with daily coding challenges.",
+      link: "https://newjob.dev/",
+      color: "from-red-300 to-blue-300",
+    },
+    {
+      id: "theMohallaCafe",
+      title: "The Mohalla Cafe",
+      desc: "The Mohalla Cafe is a vibrant website designed to showcase the rich flavors of traditional Indian cuisine with a modern twist.",
+      link: "https://www.themohallacafe.com/",
+      color: "from-blue-300 to-green-500",
+    },
     {
       id: "quickReactHooks",
       title: "Quick React Hooks",
       desc: "A collection of reusable and easy-to-use React hooks designed to simplify common tasks in React applications.",
       img: "./projects/npm.png",
       link: "https://www.npmjs.com/package/quick-react-hooks",
-      color: "from-red-300 to-blue-300",
-    },
-
-    {
-      id: "newJob",
-      title: "New Job",
-      desc: "New Job - 30 Days, 30 Coding Questions Platform. Building a platform to prepare people for job interviews with daily coding challenges.",
-      link: "https://newjob.dev/",
-      color: "from-blue-300 to-green-500",
+      color: "from-green-500 to-purple-500",
     },
     {
       id: "peerChat",
@@ -33,7 +39,7 @@ const PortfolioPage = () => {
       desc: "PeerChat is a feature-rich, peer-to-peer chat application built using Python3 and Socket Programming.",
       link: "https://github.com/singhcoderX/PeerChat",
       img: "./projects/chat.png",
-      color: "from-green-500 to-pink-400",
+      color: "from-purple-500 to-pink-400",
     },
   ];
 
@@ -74,7 +80,11 @@ const PortfolioPage = () => {
                           width={"100%"}
                           height={"100%"}
                           // className="w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px]"
-                          style={{ pointerEvents: "none", border: "none" }}
+                          style={{
+                            pointerEvents: "none",
+                            border: "none",
+                            borderRadius: "10px",
+                          }}
                         />
                       )}
                     </div>
