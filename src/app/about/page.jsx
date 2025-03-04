@@ -57,8 +57,14 @@ const AboutPage = () => {
                     Envestnet, ensuring project continuity and overseeing
                     ongoing initiatives. Facilitated onboarding and provided
                     mentorship to new team members.`,
-      date: "Nov 2022 - present",
+      date: "Nov 2022 - Feb 2025",
       company: "Tata Consultancy Service",
+    },
+    {
+      title: "Engineer II",
+      desc: "Working as a full stack developer.",
+      date: "Mar 2025 - present",
+      company: "American Express",
     },
   ];
 
