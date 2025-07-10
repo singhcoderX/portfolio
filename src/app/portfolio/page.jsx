@@ -15,7 +15,7 @@ const PortfolioPage = () => {
       id: "newJob",
       title: "New Job",
       desc: "New Job - 30 Days, 30 Coding Questions Platform. Building a platform to prepare people for job interviews with daily coding challenges.",
-      link: "https://newjob.dev/",
+      link: "https://summer2024-423517.web.app/",
       color: "from-red-300 to-blue-300",
     },
     {
