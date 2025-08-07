@@ -18,21 +18,38 @@ const AboutPage = () => {
   const skills = [
     "JavaScript",
     "TypeScript",
-    "React Js",
+    "React.js",
+    "Next.js",
     "Redux",
-    "Node Js",
-    "Express Js",
-    "Vue Js",
+    "Node.js",
+    "Express.js",
+    "Vue.js",
+    "Struts",
+    "JSP",
+    "Java",
+    "Spring Boot",
     "MongoDB",
-    "mySQL",
+    "MySQL",
+    "SQL",
+    "GraphQL",
+    "gRPC",
     "Webpack",
+    "Babel",
     "Git",
-    "Figma",
-    "Jest",
-    "Google Cloud",
+    "GitHub Actions",
+    "Jenkins",
     "Firebase",
+    "Google Cloud",
+    "Azure",
+    "Jest",
+    "Figma",
+    "Framer Motion",
     "Jira",
+    "Rally",
+    "Artifactory",
     "Blender",
+    "Docker",
+    "Kubernetes",
   ];
 
   const jobs = [
@@ -101,20 +118,20 @@ const AboutPage = () => {
               <p className="text-lg">
                 Aryan Singh hails from the vibrant city of Kashipur in
                 Uttarakhand, India. With a strong academic foundation in
-                science, they embarked on their journey to IIT at a young age,
-                beginning preparations in Kota from Class 9th. Their hard work
-                paid off when they successfully cracked the IIT entrance exam,
-                leading them to pursue a B.Tech in Computer Science at IIT
-                Jodhpur, from which they graduated in 2021. Currently, they are
-                a skilled full-stack developer, boasting three years of
-                experience, particularly with React. Their passion for coding is
-                matched by a love for football, both as a player and a
-                spectator. Beyond the digital realm, they find joy in traveling
-                and sketching, hobbies that allow them to explore their
-                creativity and the world around them. Driven by a desire to live
-                a healthy and fulfilling life, they are committed to making a
-                positive impact on their country and its people, striving to
-                give back in meaningful ways.
+                science, he embarked on his journey to IIT at a young age,
+                beginning preparations in Kota from Class 9. His hard work paid
+                off when he successfully cracked the IIT entrance exam, leading
+                him to pursue a B.Tech in Computer Science at IIT Jodhpur, from
+                which he graduated in 2021. Aryan is a skilled full-stack
+                developer with 4 years of experience, specializing in React and
+                the MERN stack, along with proficiency in Java, Spring Boot, and
+                SQL. His passion for coding is matched by a love for
+                football—both as a player and a spectator. Beyond the digital
+                realm, he finds joy in traveling and sketching—hobbies that
+                allow him to explore his creativity and the world around him.
+                Driven by a desire to live a healthy and fulfilling life, he is
+                committed to making a positive impact on his country and its
+                people, striving to give back in meaningful ways.
               </p>
               {/* Biography Quote  */}
               <br />
