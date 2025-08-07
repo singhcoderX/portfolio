@@ -18,14 +18,16 @@ const Homepage = () => {
             Turning Ideas into Impactful Solutions
           </h1>
           <p className="text-base md:text-xl lg:text-2xl mb-1 md:mb-3">
-            Full Stack Developer | Expert in React | Experience in MERN stack.
+            Engineer II @ Amex | Full Stack Developer | React & MERN Stack
+            Specialist
           </p>
           <p className="text-sm lg:text-xl mb-2 md:mb-3">
-            Hello! I’m Aryan Singh, a dedicated Software Engineer with a strong
-            passion for solving real-world problems through technology. My
-            primary expertise lies in front-end development with React, but my
-            curiosity and drive have led me to explore backend technologies as
-            well.
+            Hello! I’m Aryan Singh, a Software Engineer at American Express. I
+            specialize in front-end development with React and build scalable
+            backend systems using Node.js and Java (Spring Boot). I'm
+            comfortable working with both NoSQL and SQL databases, and I enjoy
+            crafting high-performance, maintainable full-stack applications to
+            solve real-world problems.
           </p>
           {/* BUTTONS */}
           <div className="flex w-full mb-2">
