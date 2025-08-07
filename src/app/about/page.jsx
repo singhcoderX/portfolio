@@ -45,24 +45,13 @@ const AboutPage = () => {
     },
     {
       title: "Senior Software Engineer",
-      desc: `Built dynamic user interfaces with React.js, integrating
-                    highcharts for interactive data visualizations and
-                    drag-and-drop widgets.`,
-      date: "Jun 2021 - Nov 2022",
+      desc: `Built 25+ custom React widgets with Highcharts and drag-and-drop support. Created a design system with Storybook, improved API handling, and maintained 95% test coverage. Mentored new developers and transitioned to TCS to ensure project continuity.`,
+      date: "Jun 2021 - Feb 2025",
       company: "Envestnet Yodlee",
     },
     {
-      title: "Senior Engineer",
-      desc: `Transitioned to TCS through a strategic partnership with
-                    Envestnet, ensuring project continuity and overseeing
-                    ongoing initiatives. Facilitated onboarding and provided
-                    mentorship to new team members.`,
-      date: "Nov 2022 - Feb 2025",
-      company: "Tata Consultancy Service",
-    },
-    {
       title: "Engineer II",
-      desc: "Working as a full stack developer.",
+      desc: "Working on improving observability by migrating from Splunk to ELF, and reducing logging costs. Led secure Maven dependency upgrades across multi-module projects. Maintaining and enhancing legacy platforms built with Struts, JSP, and Servlets.",
       date: "Mar 2025 - present",
       company: "American Express",
     },
@@ -201,7 +190,7 @@ const AboutPage = () => {
               {jobs.map((job, idx) => {
                 return (
                   <div key={idx}>
-                    <div className="hidden sm:flex  justify-between  h-48">
+                    <div className="hidden sm:flex  justify-between  max-h-80">
                       {/* LEFT  */}
                       <div className="w-1/3">
                         {idx % 2 == 0 && <>{renderJobDetail(job)}</>}
