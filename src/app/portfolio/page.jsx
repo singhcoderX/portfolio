@@ -8,7 +8,9 @@ import Link from "next/link";
 const PortfolioPage = () => {
   const ref = useRef();
   const { scrollYProgress } = useScroll({ target: ref });
-  const xValue = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]); // change -ve percentage wrt length of projects
+
+  // Change -ve percentage wrt length of projects for 4 -> -80% and for 3 -> -75%
+  const xValue = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]); // change -ve percentage wrt length of projects
 
   const projects = [
     {
@@ -18,13 +20,13 @@ const PortfolioPage = () => {
       link: "https://summer2024-423517.web.app/",
       color: "from-red-300 to-blue-300",
     },
-    {
-      id: "theMohallaCafe",
-      title: "The Mohalla Cafe",
-      desc: "The Mohalla Cafe is a vibrant website designed to showcase the rich flavors of traditional Indian cuisine with a modern twist.",
-      link: "https://www.themohallacafe.com/",
-      color: "from-blue-300 to-green-500",
-    },
+    // {
+    //   id: "theMohallaCafe",
+    //   title: "The Mohalla Cafe",
+    //   desc: "The Mohalla Cafe is a vibrant website designed to showcase the rich flavors of traditional Indian cuisine with a modern twist.",
+    //   link: "https://www.themohallacafe.com/",
+    //   color: "from-blue-300 to-green-500",
+    // },
     {
       id: "quickReactHooks",
       title: "Quick React Hooks",
@@ -42,7 +44,7 @@ const PortfolioPage = () => {
       color: "from-purple-500 to-pink-400",
     },
   ];
-
+  const footerHeight = "6rem";
   return (
     <PageWrapper>
       <div
@@ -50,7 +52,7 @@ const PortfolioPage = () => {
         style={{ height: `${projects.length + 1}00vh` }}
         ref={ref}
       >
-        <div className="w-screen h-[calc(100vh-6rem)] flex items-center justify-center text-6xl sm:text-8xl text-center">
+        <div className={`w-screen h-[calc(100vh-${footerHeight})] flex items-center justify-center text-6xl sm:text-8xl text-center`}>
           My Works
         </div>
         <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
