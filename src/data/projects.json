@@ -1,0 +1,35 @@
+[
+  {
+    "id": "newJob",
+    "title": "New Job",
+    "desc": "New Job - 30 Days, 30 Coding Questions Platform. Building a platform to prepare people for job interviews with daily coding challenges.",
+    "link": "https://summer2024-423517.web.app/",
+    "color": "from-red-300 to-blue-300"
+  },
+  {
+    "id": "quickReactHooks",
+    "title": "Quick React Hooks",
+    "desc": "A collection of reusable and easy-to-use React hooks designed to simplify common tasks in React applications.",
+    "img": "./projects/npm.png",
+    "link": "https://www.npmjs.com/package/quick-react-hooks",
+    "color": "from-green-500 to-purple-500"
+  },
+  {
+    "id": "peerChat",
+    "title": "Peer Chat",
+    "desc": "PeerChat is a feature-rich, peer-to-peer chat application built using Python3 and Socket Programming.",
+    "link": "https://github.com/singhcoderX/PeerChat",
+    "img": "./projects/chat.png",
+    "color": "from-purple-500 to-pink-400"
+  },
+  {
+    "_comment": "Commented out project - set active to true to enable",
+    "id": "theMohallaCafe",
+    "title": "The Mohalla Cafe",
+    "desc": "The Mohalla Cafe is a vibrant website designed to showcase the rich flavors of traditional Indian cuisine with a modern twist.",
+    "link": "https://www.themohallacafe.com/",
+    "color": "from-blue-300 to-green-500",
+    "active": false
+  }
+]
+
