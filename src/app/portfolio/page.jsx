@@ -12,7 +12,7 @@ const PortfolioPage = () => {
 
   // Filter out inactive projects (where active is false)
   const projects = useMemo(() => {
-    return projectsData.filter(project => project.active !== false);
+    return projectsData.filter((project) => project.active !== false);
   }, []);
 
   // Calculate xValue dynamically based on number of projects
@@ -24,8 +24,29 @@ const PortfolioPage = () => {
     return `${percentage}%`;
   }, [projects.length]);
 
-  const xValue = useTransform(scrollYProgress, [0, 1], ["0%", xValuePercentage]);
+  const xValue = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", xValuePercentage]
+  );
   const footerHeight = "6rem";
+
+  const getGradientColor = (idx) => {
+    const rainbowGradients = [
+      "from-purple-400 to-red-400",
+      "from-red-400 to-blue-400", // red to orange
+      "from-blue-400 to-gray-300", // orange to gray (was yellow)
+      "from-gray-300 to-green-400", // gray to green (was yellow to green)
+      "from-green-400 to-blue-400", // green to blue
+      "from-blue-400 to-indigo-400", // blue to indigo
+      "from-indigo-400 to-purple-400", // indigo to purple
+      "from-purple-400 to-pink-400", // purple to pink
+    ];
+    // Loop if idx >= rainbowGradients.length
+    const gradient = rainbowGradients[idx % rainbowGradients.length];
+    return gradient;
+  };
+
   return (
     <PageWrapper>
       <div
@@ -33,17 +54,25 @@ const PortfolioPage = () => {
         style={{ height: `${projects.length + 1}00vh` }}
         ref={ref}
       >
-        <div className={`w-screen h-[calc(100vh-${footerHeight})] flex items-center justify-center text-6xl sm:text-8xl text-center`}>
+        <div
+          className={`w-screen h-[calc(100vh-${footerHeight})] flex items-center justify-center text-6xl sm:text-8xl text-center`}
+        >
           My Works
         </div>
         <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
           <motion.div style={{ x: xValue }} className="flex">
-            <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-purple-300 to-red-300" />
+            <div
+              className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${getGradientColor(
+                0
+              )}`}
+            />
             {projects.map((project, idx) => {
               return (
                 <div
                   key={idx}
-                  className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${project.color}`}
+                  className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${getGradientColor(
+                    idx + 1
+                  )}`}
                 >
                   <div className="flex flex-col gap-8 text-white">
                     <h1 className="text-xl font-bold md:text-4xl lg:text-6xl">
