@@ -1,50 +1,52 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useMemo } from "react";
 import Image from "next/image";
 import PageWrapper from "../../components/pageWrapper";
 import { useScroll, useTransform, motion } from "framer-motion";
 import Link from "next/link";
+import projectsData from "../../data/projects.json";
 
 const PortfolioPage = () => {
   const ref = useRef();
   const { scrollYProgress } = useScroll({ target: ref });
 
-  // Change -ve percentage wrt length of projects for 4 -> -80% and for 3 -> -75%
-  const xValue = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]); // change -ve percentage wrt length of projects
+  // Filter out inactive projects (where active is false)
+  const projects = useMemo(() => {
+    return projectsData.filter((project) => project.active !== false);
+  }, []);
 
-  const projects = [
-    {
-      id: "newJob",
-      title: "New Job",
-      desc: "New Job - 30 Days, 30 Coding Questions Platform. Building a platform to prepare people for job interviews with daily coding challenges.",
-      link: "https://summer2024-423517.web.app/",
-      color: "from-red-300 to-blue-300",
-    },
-    // {
-    //   id: "theMohallaCafe",
-    //   title: "The Mohalla Cafe",
-    //   desc: "The Mohalla Cafe is a vibrant website designed to showcase the rich flavors of traditional Indian cuisine with a modern twist.",
-    //   link: "https://www.themohallacafe.com/",
-    //   color: "from-blue-300 to-green-500",
-    // },
-    {
-      id: "quickReactHooks",
-      title: "Quick React Hooks",
-      desc: "A collection of reusable and easy-to-use React hooks designed to simplify common tasks in React applications.",
-      img: "./projects/npm.png",
-      link: "https://www.npmjs.com/package/quick-react-hooks",
-      color: "from-green-500 to-purple-500",
-    },
-    {
-      id: "peerChat",
-      title: "Peer Chat",
-      desc: "PeerChat is a feature-rich, peer-to-peer chat application built using Python3 and Socket Programming.",
-      link: "https://github.com/singhcoderX/PeerChat",
-      img: "./projects/chat.png",
-      color: "from-purple-500 to-pink-400",
-    },
-  ];
+  // Calculate xValue dynamically based on number of projects
+  // Formula: -75 - 5*(n-3) where n is the number of projects
+  // For 3 projects: -75%, for 4 projects: -80%, etc.
+  const xValuePercentage = useMemo(() => {
+    const numProjects = projects.length;
+    const percentage = -75 - 5 * (numProjects - 3);
+    return `${percentage}%`;
+  }, [projects.length]);
+
+  const xValue = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", xValuePercentage]
+  );
   const footerHeight = "6rem";
+
+  const getGradientColor = (idx) => {
+    const rainbowGradients = [
+      "from-purple-400 to-red-400",
+      "from-red-400 to-blue-400", // red to orange
+      "from-blue-400 to-gray-300", // orange to gray (was yellow)
+      "from-gray-300 to-green-400", // gray to green (was yellow to green)
+      "from-green-400 to-blue-400", // green to blue
+      "from-blue-400 to-indigo-400", // blue to indigo
+      "from-indigo-400 to-purple-400", // indigo to purple
+      "from-purple-400 to-pink-400", // purple to pink
+    ];
+    // Loop if idx >= rainbowGradients.length
+    const gradient = rainbowGradients[idx % rainbowGradients.length];
+    return gradient;
+  };
+
   return (
     <PageWrapper>
       <div
@@ -52,17 +54,25 @@ const PortfolioPage = () => {
         style={{ height: `${projects.length + 1}00vh` }}
         ref={ref}
       >
-        <div className={`w-screen h-[calc(100vh-${footerHeight})] flex items-center justify-center text-6xl sm:text-8xl text-center`}>
+        <div
+          className={`w-screen h-[calc(100vh-${footerHeight})] flex items-center justify-center text-6xl sm:text-8xl text-center`}
+        >
           My Works
         </div>
         <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
           <motion.div style={{ x: xValue }} className="flex">
-            <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-purple-300 to-red-300" />
+            <div
+              className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${getGradientColor(
+                0
+              )}`}
+            />
             {projects.map((project, idx) => {
               return (
                 <div
                   key={idx}
-                  className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${project.color}`}
+                  className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${getGradientColor(
+                    idx + 1
+                  )}`}
                 >
                   <div className="flex flex-col gap-8 text-white">
                     <h1 className="text-xl font-bold md:text-4xl lg:text-6xl">
