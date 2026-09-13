@@ -6,8 +6,9 @@ import TransitionProvider from "../components/transitionProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Aryan's Portfolio ",
-  description: "Welcome to my portfolio!",
+  title: "Aryan Singh | Software Engineer III @ Google Cloud",
+  description:
+    "Software Engineer III on Google Cloud Platform's Cloud VPN team, building reliable and scalable cloud networking systems.",
 };
 
 export default function RootLayout({ children }) {
