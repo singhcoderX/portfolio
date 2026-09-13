@@ -132,7 +132,7 @@ const PortfolioPage = () => {
             </defs>
             <text fill="#000">
               <textPath xlinkHref="#circlePath" className="text-xl">
-                Full-stack Developer & Expert in React
+                Software Engineer III @ Google Cloud | Cloud VPN
               </textPath>
             </text>
           </motion.svg>

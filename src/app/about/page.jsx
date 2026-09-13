@@ -24,6 +24,13 @@ const AboutPage = () => {
     "Node.js",
     "Express.js",
     "Vue.js",
+    "OpenSearch",
+    "OpenTelemetry",
+    "Storybook",
+    "Highcharts",
+    "WCAG",
+    "Micro-frontends",
+    "Vert.x",
     "Struts",
     "JSP",
     "Java",
@@ -32,6 +39,7 @@ const AboutPage = () => {
     "MySQL",
     "SQL",
     "GraphQL",
+    "Apollo",
     "gRPC",
     "Webpack",
     "Babel",
@@ -40,6 +48,8 @@ const AboutPage = () => {
     "Jenkins",
     "Firebase",
     "Google Cloud",
+    "Cloud VPN",
+    "IPsec",
     "Azure",
     "Jest",
     "Figma",
@@ -54,23 +64,34 @@ const AboutPage = () => {
 
   const jobs = [
     {
-      title: "Web Internship",
-      desc: `Led the integration of digital business card exchange features into NEXTa Meishi,
-              enhancing online networking capabilities using PHP (Laravel), Vue.js, and Vuetify.`,
-      date: "May 2020 - Jun 2020",
-      company: "Tonichi",
+      title: "Software Engineer III",
+      desc: `Currently managing over 1M IPsec tunnels across multiple regions within the Google Cloud ecosystem. Collaborate with cross-functional teams to enhance the performance and reliability of Cloud VPN services and utilize advanced networking protocols to ensure secure and efficient data transmission for clients.`,
+      date: "Jun 2026 - present",
+      company: "Google",
     },
     {
-      title: "Senior Software Engineer",
-      desc: `Built 25+ custom React widgets with Highcharts and drag-and-drop support. Created a design system with Storybook, improved API handling, and maintained 95% test coverage. Mentored new developers and transitioned to TCS to ensure project continuity.`,
-      date: "Jun 2021 - Feb 2025",
+      title: "Software Engineer II",
+      desc: `Built and maintained enterprise-scale applications with a focus on scalability, observability, and developer productivity. Worked across frontend and backend layers, improved deployment workflows, and supported large-scale platform modernization for business-critical systems.`,
+      date: "Mar 2025 - May 2026",
+      company: "American Express",
+    },
+    {
+      title: "Software Engineer II",
+      desc: `Developed and maintained enterprise systems with strong emphasis on product reliability, maintainability, and user experience. Contributed to backend integration work, UI enhancements, and application performance across key business workflows.`,
+      date: "Nov 2022 - Feb 2025",
+      company: "TCS",
+    },
+    {
+      title: "Software Engineer",
+      desc: `Worked on frontend and web application development with React and JavaScript, contributing to product enhancements and improving customer-facing experience across fintech workflows.`,
+      date: "Jul 2021 - Nov 2022",
       company: "Envestnet Yodlee",
     },
     {
-      title: "Engineer II",
-      desc: "Working on improving observability by migrating from Splunk to ELF, and reducing logging costs. Led secure Maven dependency upgrades across multi-module projects. Maintaining and enhancing legacy platforms built with Struts, JSP, and Servlets.",
-      date: "Mar 2025 - present",
-      company: "American Express",
+      title: "Web Development Intern",
+      desc: `Built and integrated digital business card exchange features into a web platform using PHP (Laravel), Vue.js, and Vuetify, improving online networking capabilities and user engagement.`,
+      date: "May 2020 - Jul 2020",
+      company: "Tonichi",
     },
   ];
 
@@ -121,22 +142,21 @@ const AboutPage = () => {
                 science, he embarked on his journey to IIT at a young age,
                 beginning preparations in Kota from Class 9. His hard work paid
                 off when he successfully cracked the IIT entrance exam, leading
-                him to pursue a B.Tech in Computer Science at IIT Jodhpur, from
-                which he graduated in 2021. Aryan is a skilled full-stack
-                developer with 4 years of experience, specializing in React and
-                the MERN stack, along with proficiency in Java, Spring Boot, and
-                SQL. His passion for coding is matched by a love for
-                football—both as a player and a spectator. Beyond the digital
-                realm, he finds joy in traveling and sketching—hobbies that
-                allow him to explore his creativity and the world around him.
-                Driven by a desire to live a healthy and fulfilling life, he is
-                committed to making a positive impact on his country and its
-                people, striving to give back in meaningful ways.
+                him to pursue a B.Tech in Computer Science at IIT Jodhpur,
+                graduating in 2021. Aryan is a software engineer with
+                approximately five years of experience across fintech,
+                enterprise platforms, and Google Cloud engineering. He specializes
+                in React, Java, full-stack systems, micro-frontends, and cloud
+                infrastructure, with a strong focus on performance, accessibility,
+                and scalable product engineering. Outside of work, he enjoys
+                football, travel, and sketching while staying driven by a desire
+                to build meaningful, high-impact solutions for real-world
+                problems.
               </p>
               {/* Biography Quote  */}
               <br />
               <span className="italic hidden sm:block">
-                Hardwork works where talent fails.
+                Hard work beats talent after some time!!
               </span>
               {/* Biography Sign  */}
             </motion.div>

@@ -18,16 +18,15 @@ const Homepage = () => {
             Turning Ideas into Impactful Solutions
           </h1>
           <p className="text-base md:text-xl lg:text-2xl mb-1 md:mb-3">
-            Engineer II @ Amex | Full Stack Developer | React & MERN Stack
-            Specialist
+            Software Engineer III @ Google Cloud | Cloud VPN | Full-stack & Java
           </p>
           <p className="text-sm lg:text-xl mb-2 md:mb-3">
-            Hello! I’m Aryan Singh, a Software Engineer at American Express. I
-            specialize in front-end development with React and build scalable
-            backend systems using Node.js and Java (Spring Boot). I'm
-            comfortable working with both NoSQL and SQL databases, and I enjoy
-            crafting high-performance, maintainable full-stack applications to
-            solve real-world problems.
+            Hi! I’m Aryan Singh, a Software Engineer III on Google Cloud
+            Platform’s Cloud VPN team in Bengaluru. I currently manage over 1M
+            IPsec tunnels across multiple regions and work with cross-functional
+            teams to improve the performance, reliability, and security of Cloud
+            VPN services. My background spans full-stack engineering, frontend
+            systems, observability, and large-scale cloud infrastructure.
           </p>
           {/* BUTTONS */}
           <div className="flex w-full mb-2">
