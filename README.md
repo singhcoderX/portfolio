@@ -15,20 +15,4 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Project stack
-
-- Next.js
-- React
-- Framer Motion
-- Tailwind CSS
-- JavaScript / TypeScript
-
-## Current focus
-
-- Google Cloud Platform
-- Cloud VPN
-- Full-stack engineering
-- Frontend performance and accessibility
-- Scalable cloud infrastructure
+Open [http://localhost:3000](http://localhost:3000) with your browser
